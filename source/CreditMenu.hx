@@ -17,7 +17,7 @@ import Discord.DiscordClient;
 
 using StringTools;
 
-class CreditState extends MusicBeatState
+class CreditMenu extends MusicBeatState
 {
 
 	var scoreText:FlxText;
