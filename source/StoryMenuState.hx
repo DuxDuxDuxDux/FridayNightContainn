@@ -30,11 +30,12 @@ class StoryMenuState extends MusicBeatState
 		['Protect', 'Defend', "Safeguard"],
 		['Indie-Star', "Rising-Star", "Superstar"],
 		['Order-Up', 'Rush-Hour', 'Freedom'],
-		['Buckets', 'Logarithms', 'Terminal']
+		['Buckets', 'Logarithms', 'Terminal'],
+		['Explosion']
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
@@ -43,7 +44,8 @@ class StoryMenuState extends MusicBeatState
 		['pico', 'bf', 'gf'],
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf']
+		['senpai', 'bf', 'gf'],
+		['spooky', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = [
@@ -53,7 +55,8 @@ class StoryMenuState extends MusicBeatState
 		"Sister Complex",
 		"Mom's Love",
 		"Dinner Date",
-		"Glitch Out"
+		"Glitch Out",
+		"Logic out of illogic"
 	];
 
 	var txtWeekTitle:FlxText;
