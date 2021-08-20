@@ -304,6 +304,6 @@ class AlphaCharacter extends FlxSprite
 				animation.play(letter);
 		}
 
-		updateHitbox(;
+		updateHitbox();
 	}
 }
