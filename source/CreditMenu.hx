@@ -28,7 +28,6 @@ class CreditState extends MusicBeatState
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
-	private var iconArray:Array<CreditIcon> = [];
 	private var grpLabels:FlxTypedGroup<Alphabet>;
 
 	var thePeople:Array<String> = [
@@ -78,8 +77,7 @@ class CreditState extends MusicBeatState
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
-		/*grpLabels = new FlxTypedGroup<Alphabet>();
-		add(grpLabels);*/
+		
 		for (i in 0...thePeople.length)
 		{
 			var theText = thePeople[i];
@@ -92,12 +90,6 @@ class CreditState extends MusicBeatState
 			elBallso.scale.set(0.5, 0.5);
 			grpSongs.add(elBallso);
 
-			var icon:CreditIcon = new CreditIcon(i, theLinks[i]);
-			icon.elSprite = songText;
-
-			// using a FlxGroup is too much fuss!
-			iconArray.push(icon);
-			add(icon);
 		}
 
 		super.create();
@@ -126,45 +118,5 @@ class CreditState extends MusicBeatState
 				}
 			}
 		}
-		for (i in iconArray) {
-			if (FlxG.mouse.overlaps(i)) {
-				i.scale.set(1, 1);
-				if (FlxG.mouse.justPressed) {
-					#if linux
-					Sys.command('/usr/bin/xdg-open', [i.link, "&"]);
-					#else
-					FlxG.openURL(i.link);
-					#end
-				}
-			} else {
-				i.scale.set(0.9, 0.9);
-			}
-		}
 	}
-}
-
-class CreditIcon extends FlxSprite
-{
-	public var link:String;
-	public var elSprite:FlxSprite;
-	public function new(num:Int, link:String)
-	{
-		this.link = link;
-		super();
-		loadGraphic(Paths.image('shitassCedits'), true, 150, 150);
-
-		antialiasing = true;
-		animation.add('balls', [num], 0, false);
-
-		scrollFactor.set();
-		animation.play('balls');
-	}
-	override function update(balls:Float) {
-		if (elSprite != null) {
-			x = elSprite.x - 200;
-			y = elSprite.y - 75;
-		}
-		super.update(balls);
-	}
-	
 }
